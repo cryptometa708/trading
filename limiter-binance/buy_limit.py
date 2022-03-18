@@ -7,10 +7,10 @@ TRADE_SYMBOL = 'APEUSDT'
 
 SOCKET = "wss://stream.binance.com:9443/ws/{}@kline_1m".format(TRADE_SYMBOL.lower())
 
-TRADE_QUANTITY = 20
-BUY_PRICE = 20
-SELL_PRICE = 100
-PERCENTAGE = 10
+TRADE_QUANTITY = 20 #how many tokens you want to buy
+BUY_PRICE = 20 #price of buying
+SELL_PRICE = 100 #price of selling
+PERCENTAGE = 10 #selling when reach this percentage
 
 in_position = True
 
