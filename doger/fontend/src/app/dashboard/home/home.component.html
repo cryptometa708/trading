@@ -1,0 +1,30 @@
+<div class="col-xs" style="height: 100%" *ngIf="!loading">
+  <div [className]="currentScreenSize+' a'">
+    <app-command (refresh)="refresh($event)" [orders]="orders"></app-command>
+  </div>
+  <div [className]="currentScreenSize+' b'">
+    <app-tv></app-tv>
+  </div>
+  <div class="col-xs">
+    <mat-tab-group *ngIf="!loading" animationDuration="0ms">
+      <mat-tab label="Positions ({{positionsSize}})">
+        <app-position [orders]="orders" (size)="positionsSize=$event"></app-position>
+      </mat-tab>
+      <mat-tab label="Open Orders ({{openOrdersSize}})">
+        <app-open [orders]="orders" (size)="openOrdersSize=$event"></app-open>
+      </mat-tab>
+      <mat-tab label="History">
+        <app-history [orders]="orders"></app-history>
+      </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</div>
+<app-loading *ngIf="loading"></app-loading>
+
+
+
+
+
+
+

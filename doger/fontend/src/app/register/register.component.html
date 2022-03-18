@@ -1,0 +1,78 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h2>Register to {{name}}</h2>
+  <mat-error *ngIf="error">
+    {{error}}
+  </mat-error>
+  <table>
+    <tr>
+      <td>
+        <mat-form-field class="full-width-input" appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" formControlName="username" required>
+          <mat-error>
+            Please provide a valid username
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="full-width-input" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hidePssword ? 'password' : 'text'" formControlName="password" required>
+          <mat-icon matSuffix
+                    (click)="hidePssword = !hidePssword">{{hidePssword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error>
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <mat-form-field appearance="fill">
+          <mat-label>Exchange</mat-label>
+          <mat-select formControlName="exchange" required>
+            <mat-option *ngFor="let exchange of exchanges" [value]="exchange" >
+              {{exchange}}
+            </mat-option>
+          </mat-select>
+          <mat-error>Please choose an Exchange</mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="full-width-input" appearance="fill">
+          <mat-label>API KEY</mat-label>
+          <input matInput type="text" formControlName="apiKey" required>
+          <mat-error>
+            Please provide a valid api key
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="full-width-input" appearance="fill">
+          <mat-label>API SECRET</mat-label>
+          <input matInput [type]="hideApiSecret ? 'password' : 'text'" formControlName="apiSecret" required>
+          <mat-icon matSuffix
+                    (click)="hideApiSecret = !hideApiSecret">{{hideApiSecret ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error>
+            Please provide a valid api secret
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a mat-raised-button color="basic" [routerLink]="actions.login.path">Login</a>
+      </td>
+      <td>
+        <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading"><span
+          *ngIf="!loading">Register</span><span
+          *ngIf="loading">&nbsp;</span>
+        </button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+

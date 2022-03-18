@@ -1,0 +1,58 @@
+
+mat-list {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+button, input, mat-slider, mat-button-toggle-group {
+  width: 100%;
+}
+
+mat-button-toggle {
+  width: 50%;
+}
+
+mat-button-toggle-group {
+  margin-bottom: 10px;
+}
+
+button {
+  color: white;
+}
+
+.full-width-input, table {
+  width: 100%;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.mat-radio-button {
+  margin: 10px 12px;
+}
+
+.green{
+  background-color: forestgreen;
+  color: white;
+}
+
+.red{
+  background-color: orangered;
+  color: white;
+}
+
+
+
+.mat-button-toggle-checked.buy {
+  background-color: forestgreen;
+  color: white;
+}
+
+.mat-button-toggle-checked.sell {
+  background-color: orangered;
+  color: white;
+}
+

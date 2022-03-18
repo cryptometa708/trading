@@ -1,2 +1,2 @@
 # trading
-this is a global repository for dummy trading scripts
+this repository is for helpful trading scripts that i want to share them publicly enjoy 

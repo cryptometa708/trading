@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2>Welcome to {{name}}</h2>
+      <mat-error *ngIf="error">
+        {{error}}
+      </mat-error>
+      <mat-form-field class="full-width-input">
+        <input matInput type="text" placeholder="Username" formControlName="username" required>
+        <mat-error>
+          Please provide a valid username
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile><a mat-raised-button color="basic" [routerLink]="actions.register.path">Register
+        </a></mat-grid-tile>
+        <mat-grid-tile>
+          <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading"><span
+            *ngIf="!loading">Login</span><span
+            *ngIf="loading">&nbsp;</span></button>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    </form>
+  </mat-card-content>
+</mat-card>

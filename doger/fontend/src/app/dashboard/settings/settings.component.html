@@ -1,0 +1,181 @@
+<mat-tab-group animationDuration="0s">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">settings</mat-icon>
+      Genaral
+    </ng-template>
+    <mat-error *ngIf="error">
+      {{error}}
+    </mat-error>
+    <form [formGroup]="settingForm" (ngSubmit)="onSubmit()">
+      <h2>{{name}} account settings</h2>
+      <mat-expansion-panel [expanded]="true" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Personal data
+          </mat-panel-title>
+          <mat-panel-description>
+            your username and password
+            <mat-icon>account_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field class="full-width-input" appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" formControlName="username" required>
+          <mat-error>
+            Please provide a valid username
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
+          <mat-icon matSuffix
+                    (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error>
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [expanded]="true" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Exchanges
+          </mat-panel-title>
+          <mat-panel-description>
+            exchanges information
+            <mat-icon>cloud_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-accordion>
+          <mat-radio-group
+            aria-labelledby="exchange information" formControlName="selected">
+
+            <mat-card *ngFor="let exchange of userExchanges; let i = index;" class="card">
+              <mat-radio-button class="radio" [value]="exchange.id" [checked]="exchange.main == 1"
+                                color="warn"></mat-radio-button>
+              <strong>{{exchange.exchange}}</strong>
+              <a mat-mini-fab color="warn" class="delete" (click)="delete(exchange.id , i)">
+                <mat-icon>delete</mat-icon>
+              </a>
+
+            </mat-card>
+            <mat-card *ngIf="add">
+              <table class="table">
+                <tr>
+                  <td colspan="2">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Exchange</mat-label>
+                      <mat-select formControlName="exchange" required>
+                        <mat-option *ngFor="let exchange of exchanges" [value]="exchange">
+                          {{exchange}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error>Please choose an Exchange</mat-error>
+                    </mat-form-field>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <mat-form-field class="full-width-input" appearance="fill">
+                      <mat-label>API KEY</mat-label>
+                      <input matInput type="text" formControlName="apiKey" required>
+                      <mat-error>
+                        Please provide a valid api key
+                      </mat-error>
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <mat-form-field class="full-width-input" appearance="fill">
+                      <mat-label>API SECRET</mat-label>
+                      <input matInput [type]="hideApiSecret ? 'password' : 'text'" formControlName="apiSecret" required>
+                      <mat-icon matSuffix
+                                (click)="hideApiSecret = !hideApiSecret">{{hideApiSecret ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      <mat-error>
+                        Please provide a valid api secret
+                      </mat-error>
+                    </mat-form-field>
+                  </td>
+                </tr>
+              </table>
+            </mat-card>
+            <!--          <mat-expansion-panel *ngFor="let exchange of items.controls; let i = index;" >-->
+            <!--            <mat-expansion-panel-header>-->
+            <!--              <mat-panel-title>-->
+
+            <!--              </mat-panel-title>-->
+            <!--              <mat-panel-description>-->
+            <!--                default {{exchange.value.main}}-->
+            <!--              </mat-panel-description>-->
+            <!--            </mat-expansion-panel-header>-->
+            <!--            <div [formGroupName]="i">-->
+            <!--              <mat-form-field class="full-width-input" appearance="fill">-->
+            <!--                <mat-label>API KEY</mat-label>-->
+            <!--                <input matInput type="text"  required>-->
+            <!--                <mat-error>-->
+            <!--                  Please provide a valid api key-->
+            <!--                </mat-error>-->
+            <!--              </mat-form-field>-->
+            <!--              <mat-form-field class="full-width-input" appearance="fill">-->
+            <!--                <mat-label>API SECRET</mat-label>-->
+            <!--                <input matInput [type]="hideApiSecret ? 'password' : 'text'"  required>-->
+            <!--                <mat-icon matSuffix-->
+            <!--                          (click)="hideApiSecret = !hideApiSecret">{{hideApiSecret ? 'visibility_off' : 'visibility'}}</mat-icon>-->
+            <!--                <mat-error>-->
+            <!--                  Please provide a valid api secret-->
+            <!--                </mat-error>-->
+            <!--              </mat-form-field>-->
+            <!--            </div>-->
+
+            <!--          </mat-expansion-panel>-->
+          </mat-radio-group>
+
+        </mat-accordion>
+
+
+        <!--      <mat-list role="list">-->
+        <!--        <mat-list-item *ngFor="let exchange of userExchanges" role="listitem">-->
+        <!--          {{exchange.exchange}} <a mat-icon-button color="primary" aria-label="Example icon button with a home icon">-->
+        <!--            <mat-icon>home</mat-icon>-->
+        <!--          </a>-->
+        <!--        </mat-list-item>-->
+        <!--      </mat-list>-->
+        <!--      <mat-form-field appearance="fill">-->
+        <!--        <mat-label>Exchange</mat-label>-->
+        <!--        <mat-select formControlName="exchange" required>-->
+        <!--          <mat-option *ngFor="let exchange of exchanges" [value]="exchange">-->
+        <!--            {{exchange}}-->
+        <!--          </mat-option>-->
+        <!--        </mat-select>-->
+        <!--        <mat-error>Please choose an Exchange</mat-error>-->
+        <!--      </mat-form-field>-->
+
+        <mat-action-row>
+          <button mat-raised-button color="warn" *ngIf="add" (click)="saveExchange()">Save exchange</button>
+          <button mat-raised-button color="basic" *ngIf="!add" (click)="add = !add">Add exchange</button>
+          <button mat-raised-button color="primary" type="submit">Save</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+
+    </form>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">flash_on</mat-icon>
+      Strategies
+    </ng-template>
+    <div>
+      <h1 class="centered">under construction</h1>
+    </div>
+
+  </mat-tab>
+
+</mat-tab-group>
+<app-loading *ngIf="loading"></app-loading>
+
+
+

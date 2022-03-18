@@ -1,0 +1,6 @@
+ta
+schedule
+ccxt
+pandas
+numpy
+stockstats

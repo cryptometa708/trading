@@ -1,0 +1,78 @@
+/*form {*/
+/*  max-width: 400px;*/
+/*  margin: 0 auto;*/
+/*  text-align: center;*/
+/*  position: relative;*/
+/*  top: 60px;*/
+/*}*/
+
+/*mat-form-field {*/
+/*  display: block;*/
+/*}*/
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3%;
+  /*padding: 31px 40px 60px 40px*/
+}
+
+.example-tab-icon {
+  margin-right: 8px;
+}
+
+.card {
+  margin-bottom: 10px;
+}
+
+.centered {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3%;
+  font-size: 40px;
+}
+
+.full-width-input {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+}
+
+mat-form-field {
+  display: block;
+}
+
+button {
+  display: block;
+  margin: auto;
+  width: 99%;
+  margin-top: 10px;
+}
+
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete {
+  float: right;
+  display: block;
+  bottom: 10px;
+}
+
+.radio {
+  float: left;
+}
+
+
+
+

@@ -1,0 +1,32 @@
+/*form {*/
+/*  max-width: 400px;*/
+/*  margin: 0 auto;*/
+/*  text-align: center;*/
+/*  position: relative;*/
+/*  top: 60px;*/
+/*}*/
+
+/*mat-form-field {*/
+/*  display: block;*/
+/*}*/
+
+form {
+  max-width: 435px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  top: 60px;
+  padding: 3%;
+  /*padding: 31px 40px 60px 40px*/
+}
+mat-form-field {
+  display: block;
+}
+
+button,a{
+  display: block;
+  margin: auto;
+  width: 99%;
+  margin-top: 10px;
+}
+

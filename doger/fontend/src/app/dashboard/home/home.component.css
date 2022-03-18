@@ -1,0 +1,52 @@
+app-tv {
+  width: 100%;
+  height: 100%;
+}
+
+app-command, mat-tab-group {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Structure */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.example-viewport {
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.example-item {
+  height: 50px;
+}
+
+
+.col-xs, .col-xxs {
+  width: 100%;
+}
+
+.col-lg , .col-sm {
+  width: 50%;
+  float: left;
+}
+
+.col-sm.a , .col-lg.a{
+  width: 30%;
+}
+
+.col-sm.b , .col-lg.b{
+  width: 70%;
+  height: 70%;
+}
+.col-xs.b{
+  display: none;
+}

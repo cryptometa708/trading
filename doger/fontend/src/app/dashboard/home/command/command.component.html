@@ -1,0 +1,109 @@
+<form [formGroup]="commandForm" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>
+        <mat-form-field class="full-width-input" appearance="fill">
+          <mat-label>Pair</mat-label>
+          <input type="text"
+                 placeholder="Pick one"
+                 aria-label="Number"
+                 matInput
+                 formControlName="pair"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                            (optionSelected)="select($event.option.value)">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-button-toggle-group name="orderType" aria-label="order type" value="buy"
+                                 #type="matButtonToggleGroup" formControlName="type">
+          <mat-button-toggle value="buy" class="buy">BUY</mat-button-toggle>
+          <mat-button-toggle value="sell" class="sell">SELL</mat-button-toggle>
+        </mat-button-toggle-group>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <mat-form-field class="full-width-input" appearance="fill">
+                      <mat-label>Price {{pair?.value}}</mat-label>
+                      <input matInput formControlName="price" (input)="change($event , total)">
+                    </mat-form-field>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <mat-form-field class="full-width-input" appearance="fill">
+                      <mat-label>Amount {{sourceCurrency}}</mat-label>
+                      <input matInput formControlName="amount" (input)="change($event , total)">
+                    </mat-form-field>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <mat-button-toggle-group name="fiatPercentage" aria-label="percentage of fiat"
+                                             #group="matButtonToggleGroup"
+                                             (click)="percentage(group.value , type.value , total)">
+                      <mat-button-toggle value="0.25">25%</mat-button-toggle>
+                      <mat-button-toggle value="0.5">50%</mat-button-toggle>
+                      <mat-button-toggle value="0.75">75%</mat-button-toggle>
+                      <mat-button-toggle value="1">100%</mat-button-toggle>
+                    </mat-button-toggle-group>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <mat-form-field class="full-width-input" appearance="fill">
+                      <mat-label>Total {{targetCurrency}}</mat-label>
+                      <input matInput #total formControlName="total">
+                      <mat-hint align="start">
+                        <strong>Available {{balances ? balances[targetCurrency] : 0}} {{targetCurrency}}</strong>
+                      </mat-hint>
+                      <mat-hint align="end">
+                        <strong>{{sourceCurrencyBalance}} {{sourceCurrency}}</strong>
+                      </mat-hint>
+                    </mat-form-field>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td>
+                    <mat-radio-group [color]="type.value === 'buy'?'primary':'warn'" formControlName="command">
+                      <mat-radio-button value="market">Market</mat-radio-button>
+                      <mat-radio-button value="limit">Limit</mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button mat-raised-button class="green" *ngIf="type.value === 'buy'" type="submit">BUY</button>
+                    <button mat-raised-button class="red" *ngIf="type.value === 'sell'" type="submit">SELL</button>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<app-loading *ngIf="loading"></app-loading>
+
+
+
+
+
+
