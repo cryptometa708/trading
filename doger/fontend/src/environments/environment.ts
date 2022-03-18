@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  panelName:"⭕ Doger ⭕",
+  panelName:"⭕ Crypto meta ⭕",
   panelLogo:"https://i.imgur.com/m5XQNqx.png",
   apiUrl:"http://localhost/backend/"
 };
