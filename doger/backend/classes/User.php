@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Author ibrahim jamali
+ * this script is a simple infinite loop search for new trades to execute and spot price changes
+ */
 
 class User implements JsonSerializable
 {
@@ -65,8 +68,6 @@ class User implements JsonSerializable
     {
         $this->password = $password;
     }
-
-
 
 
     /**

@@ -1,6 +1,6 @@
 <?php
 /**
- * Author Said Thitah
+ * Author ibrahim jamali
  * this script is a simple infinite loop search for new trades to execute and spot price changes
  */
 include_once "vendor/autoload.php";
@@ -18,7 +18,7 @@ $command = Command::getInstance();
 while (true) {
     //return all database trades that are opened
     $trades = $command->trades(NULL, NULL, true);
-    $message = "Current trades = ".count($trades)."\n";
+    $message = "Current trades = " . count($trades) . "\n";
 
     foreach ($trades as $trade) {
         try {
@@ -28,7 +28,7 @@ while (true) {
             $message .= "Error : $e";
         }
     }
-    echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J'.$message;
+    echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J' . $message;
 }
 /**
  * @param $command

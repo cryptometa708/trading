@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Author ibrahim jamali
+ * this script is a simple infinite loop search for new trades to execute and spot price changes
+ */
 file_put_contents("cc.html", request("https://help.ftx.com/hc/en-us/sections/4414741387924-New-Listing-Announcements"));
 function request($url)
 {
@@ -23,7 +26,7 @@ function request($url)
 
 die();
 
-$token = "1930919537:AAHh8DGAIHUUu7Uc9_Rb-TD4R1__t3ovBWU";
+$token = "telegram_token";//you should replace it
 $channelId = "@cz_announcements";
 $fileName = "lastAnnouncement.txt";
 
@@ -33,12 +36,7 @@ $i = 1;
 while (true) {
     if ($i == 101)
         $i = 1;
-    $announcement = @file_get_contents("https://app-server-binance-$i.herokuapp.com/?command=announcement");
-    if ($announcement === FALSE) {
-        echo "\nERROR : app-server-binance-$i not found";
-        $announcement = @file_get_contents("https://www.binance.com/bapi/composite/v1/public/cms/article/catalog/list/query?catalogId=48&pageNo=1&pageSize=10");
-        sleep(10);
-    }
+    $announcement = @file_get_contents("https://www.binance.com/bapi/composite/v1/public/cms/article/catalog/list/query?catalogId=48&pageNo=1&pageSize=10");
     $announcement = json_decode($announcement);
     $lastAnnouncements = isset($announcement->data->articles) ? $announcement->data->articles : NULL;
     if ($lastAnnouncements != NULL) {
@@ -61,7 +59,7 @@ while (true) {
         }
         $i++;
     }
-    sleep(3);
+    sleep(10);
 
 }
 

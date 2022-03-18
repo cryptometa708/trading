@@ -1,4 +1,8 @@
 <?php
+/**
+ * Author ibrahim jamali
+ * this script is a simple infinite loop search for new trades to execute and spot price changes
+ */
 //simple script to connect your backend and your front end i made it because i had a cors-origin problems
 error_reporting(0);
 header("Access-Control-Allow-Origin: *");

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Author ibrahim jamali
+ * this script is a simple infinite loop search for new trades to execute and spot price changes
+ */
 error_reporting(0);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
