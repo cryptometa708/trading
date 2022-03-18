@@ -17,7 +17,6 @@ All files are well documented by comments. to use the script just follow the ste
 For business inquiries: solnfthunter@protonmail.com
 
 ##donate 
-- [PayPal](https://www.paypal.me/said708)
 - USDT (TRC20) - TWesqBshpV9zxVws9qP1YJthNRRbrqtheL
 - BTC  - 16N6Dz5vDLrrJGWF3w71Zhiev1X7gV7B5H
 - DOGE - D6LLe6YrCLh923ptf9d6NtRz3QjJ9ge9Sf
