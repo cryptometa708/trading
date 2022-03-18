@@ -10,12 +10,11 @@ All files are well documented by comments. to use the script just follow the ste
 7 - this is an initial version there is more things to add and tests to do feel free to submit your suggestions and feedback.<br>
 ## Social
 
-- [Follow me on Twitter](https://twitter.com/saidThitah)
-- [Follow me on LinkedIn](https://www.linkedin.com/in/saidthitah)
+- [Follow me on Twitter](https://twitter.com/worm_bit)
 
 ## Contact Us
 
-For business inquiries: said.thitah@gmail.com
+For business inquiries: solnfthunter@protonmail.com
 
 ##donate 
 - [PayPal](https://www.paypal.me/said708)
