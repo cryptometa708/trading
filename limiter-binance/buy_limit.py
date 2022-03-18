@@ -3,7 +3,7 @@ import config
 from binance.client import Client
 from binance.enums import *
 
-TRADE_SYMBOL = 'APEUSDT'
+TRADE_SYMBOL = 'APDUSDT'
 
 SOCKET = "wss://stream.binance.com:9443/ws/{}@kline_1m".format(TRADE_SYMBOL.lower())
 
