@@ -4,9 +4,8 @@
  * this script is a simple infinite loop search for new trades to execute and spot price changes
  */
 //telegram data (change it if you want a production version)
-$token = "bot_token";
-$channelId = "@channel_id";
-$user_id = "@user_id";
+$token = "5102454991:AAHPflR70Ys10rPs2CGr_gVdMpVAIsxdZ_U";
+$user_id = "@binance_announcement_test";
 $fileName = "lastAnnouncement.txt";
 
 
